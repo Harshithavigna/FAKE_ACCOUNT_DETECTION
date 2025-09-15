@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Account Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fake Account Detection</h1>
+        <form method="POST">
+            <label>Followers:</label>
+            <input type="number" name="followers"><br><br>
+
+            <label>Following:</label>
+            <input type="number" name="following"><br><br>
+
+            <label>Statuses:</label>
+            <input type="number" name="statuses"><br><br>
+
+            <label>Account Age (days):</label>
+            <input type="number" name="account_age_days"><br><br>
+
+            <label>Has Profile Pic (1=yes,0=no):</label>
+            <input type="number" name="has_profile_pic"><br><br>
+
+            <label>Default Profile (1=yes,0=no):</label>
+            <input type="number" name="default_profile"><br><br>
+
+            <label>Verified (1=yes,0=no):</label>
+            <input type="number" name="verified"><br><br>
+
+            <label>Listed Count:</label>
+            <input type="number" name="listed_count"><br><br>
+
+            <button type="submit">Check Account</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Result: {{ label }}</h2>
+            {% if prob %}
+            <p>Confidence: {{ prob }}</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
